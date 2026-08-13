@@ -87,11 +87,20 @@ enforces spec ordering lives in-process. This means:
 To scale out, give each database a single owner (for example, one worker per
 database) and shard ownership — rather than sharing a file across processes.
 
+## Values
+
+Values are serialized with the structured clone algorithm (`node:v8`), so
+`Map`, `Set`, `Date`, `RegExp`, `ArrayBuffer`, typed arrays, and cyclic
+references all round-trip — through both backends.
+
+**`Blob` and `File` are supported on Bun** (bytes, `type`, `name`, and
+`lastModified` are preserved). On runtimes whose serializer cannot preserve them
+— notably Node.js, whose `node:v8` drops a `Blob` to an empty object — storing a
+`Blob`/`File` throws a `DataCloneError` instead of silently corrupting the value.
+Store the bytes as an `ArrayBuffer` there, or run on Bun.
+
 ## Limitations
 
-- **`Blob`/`File` values are not yet supported.** Values are serialized with Node's
-  structured-clone (`node:v8`), which handles `Map`, `Set`, `Date`, `RegExp`,
-  `ArrayBuffer`, and typed arrays, but not `Blob` or `File`.
 - **The SQLite driver is synchronous.** Each operation runs on the calling thread;
   very large values block during serialization and write.
 
