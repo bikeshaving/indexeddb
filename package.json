@@ -17,6 +17,8 @@
   ],
   "scripts": {
     "build": "libuild build --save",
+    "wpt:setup": "bash scripts/setup-wpt.sh",
+    "pretest": "bash scripts/setup-wpt.sh",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",

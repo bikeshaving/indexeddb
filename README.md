@@ -95,6 +95,27 @@ database) and shard ownership — rather than sharing a file across processes.
 - **The SQLite driver is synchronous.** Each operation runs on the calling thread;
   very large values block during serialization and write.
 
+## Conformance
+
+The suite is validated against the official
+[Web Platform Tests](https://github.com/web-platform-tests/wpt) IndexedDB suite,
+run against **both** backends. The real WPT `.any.js` files are fetched at a pinned
+revision (sparse, blobless — a few MB, not the full WPT tree) and executed through a
+small `testharness` shim.
+
+```bash
+bun run wpt:setup   # fetch the pinned WPT IndexedDB tests into ./wpt (once)
+bun test            # runs unit tests + the WPT conformance suite
+```
+
+`bun run test` runs `wpt:setup` automatically first. The test layout:
+
+| Files                     | What it runs                                             |
+| ------------------------- | -------------------------------------------------------- |
+| `test/*.test.ts`          | Unit tests for keys, cursors, transactions, backends     |
+| `test/spec-*.test.ts`     | A hand-written spec suite, per backend                   |
+| `test/wpt-*.test.ts`      | The real WPT `.any.js` files, per backend                |
+
 ## License
 
 MIT © Brian Kim

@@ -11,6 +11,7 @@ export default [
 			"**/node_modules/**",
 			"**/dist/**",
 			"**/coverage/**",
+			"wpt/**", // Vendored Web Platform Tests — third-party, not our code
 		],
 	},
 	js.configs.recommended,
