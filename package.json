@@ -1,0 +1,222 @@
+{
+  "name": "@b9g/indexeddb",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Spec-compliant IndexedDB for server runtimes, with pluggable in-memory and SQLite backends.",
+  "license": "MIT",
+  "author": "Brian Kim",
+  "keywords": [
+    "indexeddb",
+    "idb",
+    "sqlite",
+    "storage",
+    "web-standards",
+    "serviceworker",
+    "node",
+    "bun"
+  ],
+  "scripts": {
+    "build": "libuild build --save",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx . --fix",
+    "prepublishOnly": "echo 'ERROR: Cannot publish from root directory. Use libuild publish instead.' && exit 1"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "better-sqlite3": "*"
+  },
+  "peerDependenciesMeta": {
+    "better-sqlite3": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@b9g/libuild": "^0.1.24",
+    "@types/bun": "^1.3.11",
+    "@eslint/js": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "typescript": "^5.7.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "module": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./memory": {
+      "types": "./dist/src/memory.d.ts",
+      "import": "./dist/src/memory.js"
+    },
+    "./sqlite": {
+      "types": "./dist/src/sqlite.d.ts",
+      "import": "./dist/src/sqlite.js"
+    },
+    "./package.json": "./dist/package.json",
+    "./backend": {
+      "types": "./dist/src/backend.d.ts",
+      "import": "./dist/src/backend.js"
+    },
+    "./backend.js": {
+      "types": "./dist/src/backend.d.ts",
+      "import": "./dist/src/backend.js"
+    },
+    "./cursor": {
+      "types": "./dist/src/cursor.d.ts",
+      "import": "./dist/src/cursor.js"
+    },
+    "./cursor.js": {
+      "types": "./dist/src/cursor.d.ts",
+      "import": "./dist/src/cursor.js"
+    },
+    "./database": {
+      "types": "./dist/src/database.d.ts",
+      "import": "./dist/src/database.js"
+    },
+    "./database.js": {
+      "types": "./dist/src/database.d.ts",
+      "import": "./dist/src/database.js"
+    },
+    "./errors": {
+      "types": "./dist/src/errors.d.ts",
+      "import": "./dist/src/errors.js"
+    },
+    "./errors.js": {
+      "types": "./dist/src/errors.d.ts",
+      "import": "./dist/src/errors.js"
+    },
+    "./event-target": {
+      "types": "./dist/src/event-target.d.ts",
+      "import": "./dist/src/event-target.js"
+    },
+    "./event-target.js": {
+      "types": "./dist/src/event-target.d.ts",
+      "import": "./dist/src/event-target.js"
+    },
+    "./events": {
+      "types": "./dist/src/events.d.ts",
+      "import": "./dist/src/events.js"
+    },
+    "./events.js": {
+      "types": "./dist/src/events.d.ts",
+      "import": "./dist/src/events.js"
+    },
+    "./factory": {
+      "types": "./dist/src/factory.d.ts",
+      "import": "./dist/src/factory.js"
+    },
+    "./factory.js": {
+      "types": "./dist/src/factory.d.ts",
+      "import": "./dist/src/factory.js"
+    },
+    "./idb-index": {
+      "types": "./dist/src/idb-index.d.ts",
+      "import": "./dist/src/idb-index.js"
+    },
+    "./idb-index.js": {
+      "types": "./dist/src/idb-index.d.ts",
+      "import": "./dist/src/idb-index.js"
+    },
+    "./index": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./index.js": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./key": {
+      "types": "./dist/src/key.d.ts",
+      "import": "./dist/src/key.js"
+    },
+    "./key.js": {
+      "types": "./dist/src/key.d.ts",
+      "import": "./dist/src/key.js"
+    },
+    "./key-range": {
+      "types": "./dist/src/key-range.d.ts",
+      "import": "./dist/src/key-range.js"
+    },
+    "./key-range.js": {
+      "types": "./dist/src/key-range.d.ts",
+      "import": "./dist/src/key-range.js"
+    },
+    "./memory.js": {
+      "types": "./dist/src/memory.d.ts",
+      "import": "./dist/src/memory.js"
+    },
+    "./object-store": {
+      "types": "./dist/src/object-store.d.ts",
+      "import": "./dist/src/object-store.js"
+    },
+    "./object-store.js": {
+      "types": "./dist/src/object-store.d.ts",
+      "import": "./dist/src/object-store.js"
+    },
+    "./request": {
+      "types": "./dist/src/request.d.ts",
+      "import": "./dist/src/request.js"
+    },
+    "./request.js": {
+      "types": "./dist/src/request.d.ts",
+      "import": "./dist/src/request.js"
+    },
+    "./scheduler": {
+      "types": "./dist/src/scheduler.d.ts",
+      "import": "./dist/src/scheduler.js"
+    },
+    "./scheduler.js": {
+      "types": "./dist/src/scheduler.d.ts",
+      "import": "./dist/src/scheduler.js"
+    },
+    "./sqlite.js": {
+      "types": "./dist/src/sqlite.d.ts",
+      "import": "./dist/src/sqlite.js"
+    },
+    "./structured-clone": {
+      "types": "./dist/src/structured-clone.d.ts",
+      "import": "./dist/src/structured-clone.js"
+    },
+    "./structured-clone.js": {
+      "types": "./dist/src/structured-clone.d.ts",
+      "import": "./dist/src/structured-clone.js"
+    },
+    "./symbols": {
+      "types": "./dist/src/symbols.d.ts",
+      "import": "./dist/src/symbols.js"
+    },
+    "./symbols.js": {
+      "types": "./dist/src/symbols.d.ts",
+      "import": "./dist/src/symbols.js"
+    },
+    "./transaction": {
+      "types": "./dist/src/transaction.d.ts",
+      "import": "./dist/src/transaction.js"
+    },
+    "./transaction.js": {
+      "types": "./dist/src/transaction.d.ts",
+      "import": "./dist/src/transaction.js"
+    },
+    "./types": {
+      "types": "./dist/src/types.d.ts",
+      "import": "./dist/src/types.js"
+    },
+    "./types.js": {
+      "types": "./dist/src/types.d.ts",
+      "import": "./dist/src/types.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bikeshaving/indexeddb.git"
+  }
+}
